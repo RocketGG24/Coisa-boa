@@ -116,8 +116,8 @@ void Alterardadosdecliente(int total){
 		switch(opcaoalterardadosclientes) {
 			case 1:
 				printf("Digite o novo nome do cliente: ");
-    			scanf("%c\n", &clientes[id].nome);
-    			printf("Dados do cliente atualizados com sucesso!\n");
+    				scanf("%c\n", &clientes[id].nome);
+    				printf("Dados do cliente atualizados com sucesso!\n");
 				break;
 			case 2:
 				printf("Digite a nova morada do cliente: ");
