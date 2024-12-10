@@ -158,7 +158,46 @@ void Alterardadosdecliente(int total){
 	} while (opcaoalterardadosclientes != 0);
 }
 	
-void AtivarouDesativarCliente();
+void AtivarDesativarCliente();
+	int id, i, encontrado = 0;
+
+    printf("Digite o ID do cliente que deseja ativar/desativar: ");
+    scanf("%d", &id);
+
+    for (i = 0; i < total; i++) {
+        if (clientes[i].id == id) {
+            encontrado = 1; 
+            break;          
+        }
+    }
+
+    if (!encontrado) {
+        printf("Cliente com ID %d não encontrado.\n", id);
+        return;
+    }
+
+    if (clientes[i].ativo) {
+        printf("O cliente com ID %d está atualmente ATIVO.\n", id);
+        printf("Deseja desativá-lo? (1-Sim, 0-Não): ");
+    } else {
+        printf("O cliente com ID %d está atualmente DESATIVADO.\n", id);
+        printf("Deseja ativá-lo? (1-Sim, 0-Não): ");
+    }
+
+    int opcao;
+    scanf("%d", &opcao);
+
+    if (opcao == 1) {
+        clientes[i].ativo = !clientes[i].ativo; 
+        if (clientes[i].ativo) {
+            printf("O cliente com ID %d foi ATIVADO com sucesso.\n", id);
+        } else {
+            printf("O cliente com ID %d foi DESATIVADO com sucesso.\n", id);
+        }
+    } else {
+        printf("Nenhuma alteração foi feita no status do cliente.\n");
+    }
+}
 void ConsultarDadosCliente();
 void ObterListaClientesAtivos();
 void ProcurarClientepeloNome();
