@@ -214,6 +214,7 @@ int main() {
 	int opcao;
 
 	setlocale(LC_ALL, "Portuguese");
+	
     do {
         printf("\n Clínica - Menu Principal \n");
         printf("1 -> Gestão de Clientes\n");
