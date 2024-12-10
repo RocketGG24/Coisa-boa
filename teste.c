@@ -158,14 +158,16 @@ void Alterardadosdecliente(int total){
 	} while (opcaoalterardadosclientes != 0);
 }
 	
-void AtivarDesativarCliente();
+void AtivarouDesativarCliente(int total){
+
 	int id, i, encontrado = 0;
 
-    printf("Digite o ID do cliente que deseja ativar/desativar: ");
+    printf("Digite o ID do cliente que deseja ativar ou desativar: ");
     scanf("%d", &id);
 
     for (i = 0; i < total; i++) {
         if (clientes[i].id == id) {
+        	printf("%d\n", clientes[i].id);
             encontrado = 1; 
             break;          
         }
@@ -184,10 +186,9 @@ void AtivarDesativarCliente();
         printf("Deseja ativá-lo? (1-Sim, 0-Não): ");
     }
 
-    int opcao;
-    scanf("%d", &opcao);
+    scanf("%d", &id);
 
-    if (opcao == 1) {
+    if (id == 1) {
         clientes[i].ativo = !clientes[i].ativo; 
         if (clientes[i].ativo) {
             printf("O cliente com ID %d foi ATIVADO com sucesso.\n", id);
@@ -224,7 +225,7 @@ void menuPrincipalClientes(int total, int numClientes){
 				Alterardadosdecliente(total); 
 				break;
 			case 3: 
-				//AtivarouDesativarCliente(); 
+				AtivarouDesativarCliente(total); 
 				break;
 			case 4: 
 				//ConsultarDadosCliente(); 
