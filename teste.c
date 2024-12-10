@@ -93,15 +93,14 @@ void InserirnovosClientes(int numClientes){
 */
 
 void Alterardadosdecliente(int total){
-	int id, i, opcaoalterardadosclientes;
-	
+	int c, id, i, opcaoalterardadosclientes;
 	
 	
 	printf("Digite o Id do cliente que pretende alterar os dados: \n");
 	scanf("%d", &id);
 	
 
-	do {
+	do {	
 		printf("\n Selecione o que deseja alterar \n");
 		printf("1 -> Nome\n");
 		printf("2 -> Morada\n");
@@ -111,36 +110,43 @@ void Alterardadosdecliente(int total){
 		printf("6 -> SNS\n");
 		printf("0 -> Voltar para Gestão de Clientes\n");
 		printf("Escolha uma opção: ");
+		while ((c = getchar()) != '\n' && c != EOF);
 		scanf("%d", &opcaoalterardadosclientes);
 		
 		switch(opcaoalterardadosclientes) {
 			case 1:
 				printf("Digite o novo nome do cliente: ");
-    				scanf("%c\n", &clientes[id].nome);
+				while ((c = getchar()) != '\n' && c != EOF);
+    				scanf("%s", clientes[id].nome);
     				printf("Dados do cliente atualizados com sucesso!\n");
 				break;
 			case 2:
 				printf("Digite a nova morada do cliente: ");
+				while ((c = getchar()) != '\n' && c != EOF);
 				scanf("%d", &clientes[id].morada);
 				printf("Dados do cliente atualizados com sucesso!\n");
 				break;
 			case 3:
 				printf("Digite o novo Email do cliente: ");
-				scanf("%c", &clientes[id].email);
+				while ((c = getchar()) != '\n' && c != EOF);
+				scanf("%s", clientes[id].email);
 				printf("Dados do cliente atualizados com sucesso!\n");
 				break;
 			case 4:
 				printf("Digite a nova data de nascimento do cliente: ");
+				while ((c = getchar()) != '\n' && c != EOF);
 				scanf("%d", &clientes[id].dataNascimento);
 				printf("Dados do cliente atualizados com sucesso!\n");
 				break;
 			case 5:
 				printf("Digite o novo NIF do cliente: ");
+				while ((c = getchar()) != '\n' && c != EOF);
 				scanf("%d", &clientes[id].nif);
 				printf("Dados do cliente atualizados com sucesso!\n");
 				break;
 			case 6:
 				printf("Digite o novo SNS do cliente: ");
+				while ((c = getchar()) != '\n' && c != EOF);
 				scanf("%d", &clientes[id].sns);
 				printf("Dados do cliente atualizados com sucesso!\n");
 				break;
@@ -152,46 +158,7 @@ void Alterardadosdecliente(int total){
 	} while (opcaoalterardadosclientes != 0);
 }
 	
-void ativarDesativarCliente();
-	int id, i, encontrado = 0;
-
-    printf("Digite o ID do cliente que deseja ativar/desativar: ");
-    scanf("%d", &id);
-
-    for (i = 0; i < total; i++) {
-        if (clientes[i].id == id) {
-            encontrado = 1; 
-            break;          
-        }
-    }
-
-    if (!encontrado) {
-        printf("Cliente com ID %d não encontrado.\n", id);
-        return;
-    }
-
-    if (clientes[i].ativo) {
-        printf("O cliente com ID %d está atualmente ATIVO.\n", id);
-        printf("Deseja desativá-lo? (1-Sim, 0-Não): ");
-    } else {
-        printf("O cliente com ID %d está atualmente DESATIVADO.\n", id);
-        printf("Deseja ativá-lo? (1-Sim, 0-Não): ");
-    }
-
-    int opcao;
-    scanf("%d", &opcao);
-
-    if (opcao == 1) {
-        clientes[i].ativo = !clientes[i].ativo; 
-        if (clientes[i].ativo) {
-            printf("O cliente com ID %d foi ATIVADO com sucesso.\n", id);
-        } else {
-            printf("O cliente com ID %d foi DESATIVADO com sucesso.\n", id);
-        }
-    } else {
-        printf("Nenhuma alteração foi feita no status do cliente.\n");
-    }
-}
+void AtivarouDesativarCliente();
 void ConsultarDadosCliente();
 void ObterListaClientesAtivos();
 void ProcurarClientepeloNome();
