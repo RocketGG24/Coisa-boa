@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include
+#include <locale.h>
 #define MAX_CLIENTES 1000
 #define MAX_MEDICOS 100
 #define MAX_CONSULTAS 5000
@@ -212,6 +212,8 @@ int main() {
 	
 	int totalClientes = 0;
 	int opcao;
+
+	setlocale(LC_ALL, "Portuguese");
     do {
         printf("\n Clínica - Menu Principal \n");
         printf("1 -> Gestão de Clientes\n");
